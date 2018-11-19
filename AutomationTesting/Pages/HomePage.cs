@@ -5,9 +5,9 @@
 
     public class HomePage
     {
-        public HomePage()
+        public HomePage(IWebDriver driver)
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = "#mh-mobile > div > header > div.mh-container.mh-container-inner.mh-row.clearfix > div > a > div > div > h1")]

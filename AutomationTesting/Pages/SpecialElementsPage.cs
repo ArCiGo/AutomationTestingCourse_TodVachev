@@ -5,9 +5,9 @@
 
     public class SpecialElementsPage
     {
-        public SpecialElementsPage()
+        public SpecialElementsPage(IWebDriver driver)
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
     }

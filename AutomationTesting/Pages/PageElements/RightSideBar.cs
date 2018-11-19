@@ -5,9 +5,9 @@
 
     public class RightSideBar
     {
-        public RightSideBar()
+        public RightSideBar(IWebDriver driver)
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = "#recent-posts-2 > ul > li:nth-child(1)")]

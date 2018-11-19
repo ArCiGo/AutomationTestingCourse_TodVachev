@@ -5,9 +5,9 @@
 
     public class Menu
     {
-        public Menu()
+        public Menu(IWebDriver driver)
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "menu-item-25")]

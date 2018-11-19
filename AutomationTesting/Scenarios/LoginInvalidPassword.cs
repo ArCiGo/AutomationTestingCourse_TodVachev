@@ -4,11 +4,12 @@
     using NUnit.Framework;
     using System.Threading;
 
-    //[Parallelizable]
-    [Parallelizable(ParallelScope.None)]  //The test may not run in parallel with others
+    [Parallelizable]
+    //[Parallelizable(ParallelScope.None)]  //The test may not run in parallel with others
     public class LoginInvalidPassword
     {
         IAlert alert;
+        public IWebDriver Driver { get; set; }
 
         public LoginInvalidPassword()
         {
@@ -17,8 +18,8 @@
         [OneTimeSetUp]
         public void Initialize()
         {
-            Actions.InitializeDriver();
-            NavigateTo.LoginFormScenarioThroughTestCases();
+            Driver = Actions.InitializeDriver();
+            NavigateTo.LoginFormScenarioThroughTestCases(Driver);
         }
 
         [Test]
@@ -27,10 +28,11 @@
             Thread.Sleep(1000);
             Actions.FillLoginForm(Config.Credentials.Valid.Username,
                 Config.Credentials.Invalid.Password.FourCharacters, 
-                Config.Credentials.Invalid.Password.FourCharacters);
+                Config.Credentials.Invalid.Password.FourCharacters,
+                Driver);
             Thread.Sleep(1000);
 
-            alert = Driver.driver.SwitchTo().Alert();
+            alert = Driver.SwitchTo().Alert();
             Thread.Sleep(5000);
             Assert.AreEqual(Config.AlertsTexts.PasswordLenghtOutOfRange, alert.Text);
             alert.Accept();
@@ -41,9 +43,11 @@
         public void MoreThan12Chars()
         {
             Actions.FillLoginForm(Config.Credentials.Valid.Username,
-                Config.Credentials.Invalid.Password.ThirteenCharacters, Config.Credentials.Invalid.Password.ThirteenCharacters);
+                Config.Credentials.Invalid.Password.ThirteenCharacters, 
+                Config.Credentials.Invalid.Password.ThirteenCharacters,
+                Driver);
 
-            alert = Driver.driver.SwitchTo().Alert();
+            alert = Driver.SwitchTo().Alert();
             Thread.Sleep(5000);
             Assert.AreEqual(Config.AlertsTexts.PasswordLenghtOutOfRange, alert.Text);
             alert.Accept();
@@ -52,7 +56,7 @@
         [OneTimeTearDown]
         public void CleanUp()
         {
-            Driver.driver.Quit();
+            Driver.Quit();
         }
     }
 }
