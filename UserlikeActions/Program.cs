@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace UserlikeActions
@@ -36,12 +37,27 @@ namespace UserlikeActions
                 driver.FindElement(By.Id(elementIDs[4]))
             };
 
-            Actions actions = new Actions(driver);
+            // Actions actions = new Actions(driver);
 
-            actions.MoveToElement(elements[0]).Build().Perform();
+            //actions.MoveToElement(elements[0]).Build().Perform();
 
-            Console.WriteLine(elements[0].GetCssValue("background-color") == lightGreen);
-            Console.WriteLine(elements[1].GetCssValue("background-color") == lightGreen);
+            //Console.WriteLine(elements[0].GetCssValue("background-color") == lightGreen);
+            //Console.WriteLine(elements[1].GetCssValue("background-color") == lightGreen);
+
+            //// Moving the first element to second place
+            //MoveElement(actions, elements[0], elements[1], 0, 10);
+
+            // Moving the elements through the stack
+            MoveElement(new Actions(driver), elements[0], elements[1], 0, 10);  // Actions was refactored here because every item needs their own Actions object
+            Thread.Sleep(1000);
+            MoveElement(new Actions(driver), elements[0], elements[2], 0, 10);
+            Thread.Sleep(1000);
+            MoveElement(new Actions(driver), elements[4], elements[1], 0, 10);
+        }
+
+        public static void MoveElement(Actions actions, IWebElement from, IWebElement to, int x = 0, int y = 0)
+        {
+            actions.ClickAndHold(from).MoveToElement(to).MoveByOffset(x, y).Release().Build().Perform();
         }
     }
 }
