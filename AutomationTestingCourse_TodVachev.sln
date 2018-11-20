@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationTesting", "Automa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumScreenshot", "SeleniumScreenshot\SeleniumScreenshot.csproj", "{398EF2C9-A191-405A-9FF8-45F8ED942EA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementLocations", "ElementLocations\ElementLocations.csproj", "{0BED54ED-F516-48F0-8AB3-8CBC7D4732AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserlikeActions", "UserlikeActions\UserlikeActions.csproj", "{7801280C-3858-4D2D-BB92-61FECD7AD0EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{398EF2C9-A191-405A-9FF8-45F8ED942EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{398EF2C9-A191-405A-9FF8-45F8ED942EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{398EF2C9-A191-405A-9FF8-45F8ED942EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BED54ED-F516-48F0-8AB3-8CBC7D4732AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BED54ED-F516-48F0-8AB3-8CBC7D4732AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BED54ED-F516-48F0-8AB3-8CBC7D4732AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BED54ED-F516-48F0-8AB3-8CBC7D4732AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7801280C-3858-4D2D-BB92-61FECD7AD0EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7801280C-3858-4D2D-BB92-61FECD7AD0EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7801280C-3858-4D2D-BB92-61FECD7AD0EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7801280C-3858-4D2D-BB92-61FECD7AD0EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
